@@ -1,0 +1,7 @@
+dev-data
+node_modules
+
+.env
+public
+
+package-lock.json
