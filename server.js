@@ -1,6 +1,18 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
+process.on('unhandledRejection', (err) => {
+  console.log(err.name, err.message);
+  console.log('Unhandled Rejection');
+  process.exit(1);
+});
+
+process.on('uncaughtException', (err) => {
+  console.log(err.name, err.message);
+  console.log('Uncaught Exception');
+  process.exit(1);
+});
+
 dotenv.config({ path: './.env' });
 
 const DB = process.env.DATABASE.replace(
@@ -19,14 +31,4 @@ mongoose
 
 const app = require('./app');
 
-const server = app.listen(process.env.PORT, () =>
-  console.log('Server is running!')
-);
-
-process.on('unhandledRejection', (err) => {
-  console.log(err.name, err.message);
-  console.log('Unhandled Rejection');
-  server.close(() => {
-    process.exit(1);
-  });
-});
+app.listen(process.env.PORT, () => console.log('Server is running!'));
