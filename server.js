@@ -19,4 +19,14 @@ mongoose
 
 const app = require('./app');
 
-app.listen(process.env.PORT, () => console.log('Server is running!'));
+const server = app.listen(process.env.PORT, () =>
+  console.log('Server is running!')
+);
+
+process.on('unhandledRejection', (err) => {
+  console.log(err.name, err.message);
+  console.log('Unhandled Rejection');
+  server.close(() => {
+    process.exit(1);
+  });
+});
