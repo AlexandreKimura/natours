@@ -31,6 +31,11 @@ router
     authController.restrictTo('admin', 'lead-guide'),
     tourController.createTour
   );
+
+router
+  .route('/tours-within/:distance/center/:latlon/unit/:unit')
+  .get(tourController.getToursWithin);
+
 router
   .route('/:id')
   .get(tourController.getTour)
