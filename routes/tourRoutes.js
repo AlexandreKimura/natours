@@ -36,6 +36,8 @@ router
   .route('/tours-within/:distance/center/:latlon/unit/:unit')
   .get(tourController.getToursWithin);
 
+router.route('/distances/:latlon/unit/:unit').get(tourController.getDistances);
+
 router
   .route('/:id')
   .get(tourController.getTour)
