@@ -73,9 +73,21 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.render('base', {
+  res.render('index', {
     tour: 'The Forest Hiker',
     user: 'Alexandre',
+  });
+});
+
+app.get('/overview', (req, res) => {
+  res.render('overview', {
+    title: 'All tours',
+  });
+});
+
+app.get('/tour', (req, res) => {
+  res.render('tour', {
+    title: 'The forest Hiker Tour',
   });
 });
 
