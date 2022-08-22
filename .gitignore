@@ -1,6 +1,8 @@
 dev-data
 node_modules
 
+.cache
+
 .env
 public
 
