@@ -33,3 +33,9 @@ exports.login = (req, res, next) => {
     title: `Log into your account`,
   });
 };
+
+exports.getAccount = (req, res) => {
+  res.render('account', {
+    title: 'Your account',
+  });
+};
