@@ -85,7 +85,6 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  console.log('First middleware');
   next();
 });
 
