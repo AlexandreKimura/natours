@@ -34,11 +34,13 @@ app.use(
         'blob:',
         'https://*.mapbox.com',
         'https://cdn.jsdelivr.net',
+        'https://js.stripe.com/v3/'
       ],
       scriptSrc: [
         "'self'",
         'https://*.mapbox.com',
         'https://cdn.jsdelivr.net',
+        'https://js.stripe.com/v3/',
         "'unsafe-inline'",
         'blob:',
       ],
