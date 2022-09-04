@@ -13,6 +13,8 @@ router.post(
   viewsController.updateUserData
 );
 
+router.get('/my-tours', authController.protect, viewsController.getMyTour)
+
 router.get('/', bookingController.createBookingCheckout, authController.isLoggedIn, viewsController.getOverview);
 
 router.use(authController.isLoggedIn);

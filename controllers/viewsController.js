@@ -1,3 +1,4 @@
+const Booking = require('../models/bookingModel');
 const Tour = require('../models/tourModel');
 const User = require('../models/userModel');
 const { catchAsync } = require('../utils/catchAsync');
@@ -62,3 +63,18 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
     user: updatedUser,
   });
 });
+
+exports.getMyTour = catchAsync (async (req, res, next) => {
+
+  const bookings = await Booking.find({
+    user: req.user.id
+  })
+
+  const tourIDs = bookings.map(b => b.tour)
+  const tours = await Tour.find({ _id: {$in: tourIDs}})
+
+  res.render('overview', {
+    title: 'My Tours',
+    tours
+  })
+})
