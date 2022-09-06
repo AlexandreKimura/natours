@@ -67,7 +67,7 @@ exports.webhookCheckout = (req, res, next) => {
   }
 
   //Same in dashboard
-  if(event.type === 'checkout.session.complete') {
+  if(event.type === 'checkout.session.completed') {
     createBookingCheckout(event.data.object)
   }
 
