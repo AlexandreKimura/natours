@@ -3,7 +3,7 @@ const Tour = require('../models/tourModel');
 const User = require('../models/userModel');
 const { catchAsync } = require('../utils/catchAsync');
 
-exports.alert = (req, res, next) => {
+exports.alerts = (req, res, next) => {
   const { alert } = req.query
 
   if(alert === 'booking') {
