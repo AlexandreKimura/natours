@@ -32,3 +32,10 @@ mongoose
 const app = require('./app');
 
 app.listen(process.env.PORT, () => console.log('Server is running!'));
+
+process.on('SIGTERM', () => {
+  console.log('SIGTERM RECEIVED. Shutting down gracefully!')
+  server.close(() => {
+    console.log('Process terminated!')
+  })
+})
